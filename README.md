@@ -1,6 +1,6 @@
 ---
 title: hubv2
-emoji: 🐳
+emoji: 
 colorFrom: blue
 colorTo: blue
 sdk: static
