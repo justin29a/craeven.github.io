@@ -7,234 +7,352 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
     <style>
-      :root {
-        --primary: #1abc9c;
-        --secondary: #2c3e50;
-        --accent: #f39c12;
-        --light: #ecf0f1;
-        --dark: #1a252f;
-      }
-
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
       body {
         font-family: "Poppins", sans-serif;
+        background-color: #f5f5f5;
+        color: #222;
         line-height: 1.6;
-        background: var(--light);
-        color: var(--dark);
       }
-
       header {
-        background: var(--secondary);
-        color: white;
-        padding: 3rem 1rem;
+        background: linear-gradient(to right, #2e2e2e, #1a1a1a);
+        color: #fff;
         text-align: center;
-        position: relative;
-        overflow: hidden;
+        padding: 4rem 2rem;
       }
-
-      header::after {
-        content: "";
-        position: absolute;
-        width: 200%;
-        height: 100%;
-        background: linear-gradient(135deg, var(--primary), var(--accent));
-        top: 0;
-        left: -100%;
-        opacity: 0.05;
-        animation: slideBg 10s linear infinite;
-      }
-
-      @keyframes slideBg {
-        0% {
-          left: -100%;
-        }
-        100% {
-          left: 0;
-        }
-      }
-
       header h1 {
+        font-family: "Playfair Display", serif;
         font-size: 3rem;
+        letter-spacing: 1px;
         margin-bottom: 0.5rem;
       }
-
       header p {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        opacity: 0.9;
       }
-
       nav {
-        background: var(--dark);
+        display: flex;
+        justify-content: center;
+        background: #1a1a1a;
         padding: 1rem;
-        text-align: center;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
+        flex-wrap: wrap;
       }
-
       nav a {
-        color: white;
-        margin: 0 15px;
+        color: #eee;
+        margin: 0 1rem;
         text-decoration: none;
         font-weight: 500;
         transition: color 0.3s;
       }
-
       nav a:hover {
-        color: var(--accent);
+        color: #cba135;
       }
-
       .hero {
-        background: var(--light);
-        padding: 4rem 1rem;
+        background: url("https://source.unsplash.com/1600x900/?luxury-hotel")
+          no-repeat center center/cover;
+        color: #fff;
+        padding: 6rem 2rem;
         text-align: center;
+        position: relative;
       }
-
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+      }
+      .hero h2,
+      .hero p,
+      .hero a {
+        position: relative;
+        z-index: 1;
+      }
       .hero h2 {
-        font-size: 2.5rem;
+        font-size: 3rem;
+        font-family: "Playfair Display", serif;
         margin-bottom: 1rem;
       }
-
-      .hero p {
-        font-size: 1.1rem;
-        margin-bottom: 1.5rem;
-      }
-
       .btn {
         display: inline-block;
-        background: var(--primary);
-        color: white;
-        padding: 0.8rem 1.5rem;
+        padding: 0.8rem 2rem;
+        background: #cba135;
+        color: #fff;
         border-radius: 30px;
         text-decoration: none;
+        font-weight: bold;
         transition: background 0.3s;
       }
-
       .btn:hover {
-        background: var(--accent);
+        background: #a8831a;
       }
-
       .section {
-        padding: 4rem 1rem;
+        padding: 4rem 2rem;
         max-width: 1200px;
         margin: auto;
-      }
-
-      .section h3 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
         text-align: center;
-        color: var(--secondary);
       }
-
+      .section h3 {
+        font-size: 2.5rem;
+        font-family: "Playfair Display", serif;
+        color: #333;
+        margin-bottom: 2rem;
+      }
       .rooms,
       .amenities,
       .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
       }
-
       .card {
-        background: white;
-        padding: 1.5rem;
+        background: #fff;
         border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        padding: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 300px;
         transition: transform 0.3s ease;
       }
-
       .card:hover {
         transform: translateY(-5px);
       }
-
-      .card h4 {
-        margin-bottom: 0.5rem;
-        color: var(--primary);
-      }
-
       .gallery img {
-        width: 100%;
+        width: 300px;
         height: 200px;
         object-fit: cover;
         border-radius: 10px;
       }
-
       form {
         max-width: 500px;
         margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
       }
-
       form input,
-      form select {
-        width: 100%;
-        padding: 0.8rem;
-        margin-bottom: 1rem;
-        border-radius: 5px;
+      form select,
+      form button {
+        padding: 1rem;
+        font-size: 1rem;
+        border-radius: 8px;
         border: 1px solid #ccc;
       }
-
+      form button {
+        background: #cba135;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+      }
       .faq-item {
-        margin-bottom: 1rem;
+        max-width: 700px;
+        margin: 1.5rem auto;
+        text-align: left;
       }
-
       .faq-item h4 {
-        margin-bottom: 0.3rem;
-        color: var(--secondary);
+        color: #cba135;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
       }
-
+      .faq-item p {
+        display: none;
+        padding-left: 1rem;
+      }
       .contact {
-        background: var(--secondary);
-        color: white;
-        text-align: center;
-        padding: 3rem 1rem;
+        background: #eee;
+        padding: 3rem 2rem;
       }
-
       .contact a {
-        color: white;
-        margin: 0 10px;
         display: inline-block;
-        transition: color 0.3s;
+        margin: 0.5rem;
+        color: #cba135;
+        text-decoration: none;
       }
-
-      .contact a:hover {
-        color: var(--accent);
-      }
-
       .footer {
-        background: var(--dark);
-        color: #ccc;
+        background: #1a1a1a;
+        color: #fff;
         text-align: center;
-        padding: 1rem;
+        padding: 2rem 1rem;
         font-size: 0.9rem;
       }
-
-      @media (max-width: 600px) {
-        header h1 {
-          font-size: 2rem;
-        }
-        .hero h2 {
-          font-size: 1.8rem;
-        }
-        nav a {
-          display: block;
-          margin: 10px 0;
+      @media (max-width: 768px) {
+        .rooms,
+        .amenities,
+        .gallery {
+          flex-direction: column;
+          align-items: center;
         }
       }
     </style>
+    <script defer>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".faq-item h4").forEach((item) => {
+          item.addEventListener("click", () => {
+            const next = item.nextElementSibling;
+            next.style.display =
+              next.style.display === "block" ? "none" : "block";
+          });
+        });
+
+        const form = document.querySelector("form");
+        if (form) {
+          form.addEventListener("submit", (e) => {
+            const inputs = form.querySelectorAll("input, select");
+            for (let input of inputs) {
+              if (!input.value) {
+                alert("Please fill in all fields.");
+                e.preventDefault();
+                return;
+              }
+            }
+            alert("Booking submitted! We will contact you shortly.");
+          });
+        }
+      });
+    </script>
   </head>
   <body>
-    <!-- The HTML body content remains unchanged and is already responsive -->
+    <header>
+      <h1>DE FRANKLINGS APARTMENT</h1>
+      <p>Luxury Meets Comfort</p>
+    </header>
+    <nav>
+      <a href="#rooms">Rooms</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#booking">Booking</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <section class="hero">
+      <h2>Experience the Ultimate Getaway</h2>
+      <p>Refined hospitality in the heart of the city</p>
+      <a href="#booking" class="btn">Book Now</a>
+    </section>
+    <section class="section" id="rooms">
+      <h3>Our Rooms</h3>
+      <div class="rooms">
+        <div class="card">
+          <img
+            src="https://source.unsplash.com/300x200/?hotel-room,bed"
+            alt="Deluxe Room"
+          />
+          <h4>Deluxe Room</h4>
+          <p>Elegant and cozy with a stunning city view.</p>
+        </div>
+        <div class="card">
+          <img
+            src="https://source.unsplash.com/300x200/?luxury-suite"
+            alt="Executive Suite"
+          />
+          <h4>Executive Suite</h4>
+          <p>
+            Spacious luxury featuring a private lounge area and premium bedding.
+          </p>
+        </div>
+        <div class="card">
+          <img
+            src="https://source.unsplash.com/300x200/?presidential-suite"
+            alt="Presidential Suite"
+          />
+          <h4>Presidential Suite</h4>
+          <p>
+            Top-tier accommodation with panoramic views and grand interiors.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="amenities">
+      <h3>Luxury Amenities</h3>
+      <div class="amenities">
+        <div class="card">
+          <img src="https://source.unsplash.com/300x200/?spa" alt="Spa" />
+          <h4>World-Class Spa</h4>
+          <p>Relax and rejuvenate with premium treatments.</p>
+        </div>
+        <div class="card">
+          <img
+            src="https://source.unsplash.com/300x200/?infinity-pool"
+            alt="Pool"
+          />
+          <h4>Infinity Pool</h4>
+          <p>Rooftop infinity pool with skyline views.</p>
+        </div>
+        <div class="card">
+          <img
+            src="https://source.unsplash.com/300x200/?restaurant"
+            alt="Dining"
+          />
+          <h4>Fine Dining</h4>
+          <p>World-class chefs and gourmet experiences.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="gallery">
+      <h3>Gallery</h3>
+      <div class="gallery">
+        <img
+          src="https://source.unsplash.com/300x200/?hotel-lobby"
+          alt="Lobby"
+        />
+        <img src="https://source.unsplash.com/300x200/?hotel-bar" alt="Bar" />
+        <img src="https://source.unsplash.com/300x200/?hotel-view" alt="View" />
+        <img
+          src="https://source.unsplash.com/300x200/?luxury-hotel-room"
+          alt="Luxury Room"
+        />
+        <img
+          src="https://source.unsplash.com/300x200/?hotel-courtyard"
+          alt="Courtyard"
+        />
+      </div>
+    </section>
+    <section class="section" id="booking">
+      <h3>Book Your Stay</h3>
+      <form>
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="date" required />
+        <input type="date" required />
+        <select required>
+          <option value="">Select Room Type</option>
+          <option value="deluxe">Deluxe Room</option>
+          <option value="executive">Executive Suite</option>
+          <option value="presidential">Presidential Suite</option>
+        </select>
+        <button type="submit">Book Now</button>
+      </form>
+    </section>
+    <section class="section" id="faq">
+      <h3>Frequently Asked Questions</h3>
+      <div class="faq-item">
+        <h4>What time is check-in and check-out?</h4>
+        <p>Check-in is from 2PM and check-out is by 11AM.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Is breakfast included in the room rate?</h4>
+        <p>Yes, a complimentary breakfast is provided for all guests.</p>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <h3>Contact Us</h3>
+      <p>Reach out for bookings or inquiries:</p>
+      <a href="mailto:info@franklingsapt.com">info@franklingsapt.com</a>
+      <a href="tel:+1234567890">+1 (234) 567-890</a>
+    </section>
+    <footer class="footer">
+      <p>&copy; 2025 DE FRANKLINGS APARTMENT. All rights reserved.</p>
+    </footer>
   </body>
 </html>
